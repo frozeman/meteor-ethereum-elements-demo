@@ -1,0 +1,70 @@
+<head>
+  <title>elements-test</title>
+</head>
+
+<body>
+
+  <p>You can find the repo for that demo page at <a href="https://github.com/frozeman/meteor-ethereum-elements-demo" target="_blank">github.com/frozeman/meteor-ethereum-elements-demo</a></p>
+
+  <hr>
+
+  <h1><strong>ethereum:elements</strong> Demo</h1>
+
+  {{> elements}}
+
+  <br><br><br><br><br>
+  <hr>
+
+  <h1 id="tools"><strong>ethereum:tools</strong> Demo</h1>
+
+  {{> tools}}
+</body>
+
+<template name="elements">
+
+    <p>
+        This is a demo for the <a href="http://github.com/ethereum/meteor-package-elements">ethereum:elements</a> package. Look at its <a href="http://github.com/ethereum/meteor-package-elements">Readme</a> for details.
+    </p>
+
+    <h2>Identicon</h2>
+
+    {{> dapp_identicon identity='0x214243657890897654321'}}
+
+    <h2>Address input</h2>
+
+    {{> dapp_addressInput placeholder="0x000000.." value="0x343c98e2b6e49bc0fed722c2a269f3814ddd1533"}}
+
+    <h2>Select accounts</h2>
+
+    {{> dapp_selectAccount accounts=accounts showAccountTypes=true}}
+
+    <h2>Gas price selection (using 21000 gas and 50 gwei gasPrice as basis)</h2>
+
+    {{> dapp_selectGasPrice gas=21000 gasPrice=50000000000}}
+
+</template>
+
+
+<template name="tools">
+
+    <h2>Helper to format numbers</h2>
+
+    {{dapp_formatNumber "2000050" "0,0.00"}}
+
+    <h2>Helper to format balances (dynamic unit)</h2>
+    <code>
+        Try to set <strong>EthTools.setUnit('usd')</strong>, or <strong>EthTools.setUnit('finney')</strong> in the browsers console.<br>
+        Take a look at the gas price select, it will change its unit as well.
+    </code>
+    <br><br>
+
+    {{dapp_formatBalance "1000000000000000000" "0,0.00[000] UNIT"}}
+
+    <h2>Helper to format balances (btc)</h2>
+
+    {{dapp_formatBalance "1000000000000000000" "0,0.00[0000] UNIT" "btc"}}
+
+    <h2>Helper to format balances (eur)</h2>
+
+    {{dapp_formatBalance "1000000000000000000" "0,0.00 UNIT" "eur"}}
+</template>
