@@ -16,5 +16,34 @@ if (Meteor.isClient) {
     }
   });
 
+
+  Template.elements.events({
+    'click button.modal': function(){
+      // show modal
+      EthElements.Modal.show('modal_demo');
+    },
+    'click button.question-modal': function(){
+      // show modal
+      EthElements.Modal.question({
+        text: 'Are you ok?',
+        ok: function(){
+          alert('Very nice!');
+        },
+        cancel: true
+      });
+    },
+    'click button.question-modal-template': function(){
+      // show modal
+      EthElements.Modal.question({
+        template: 'modal_demo',
+        ok: function(){
+          alert('Lorem ipsum!');
+        },
+        cancel: function(){
+          alert('Ok Bye!');
+        }
+      });
+    }
+  });
 }
 

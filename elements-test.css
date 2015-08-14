@@ -1,7 +1,7 @@
 /* CSS declarations go here */
 body {
     font-family: 'Helvetica Neue', Arial, verdana;
-    padding-bottom: 80px;
+    padding: 80px;
 }
 
 h1, h2 {
